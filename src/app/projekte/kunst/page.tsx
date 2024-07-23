@@ -5,7 +5,7 @@ import Imprint from "@/components/Imprint";
 function Personal() {
   return (
     <div>
-      <DesginFilter filter="home" />
+      <DesginFilter filter="art" />
       <Imprint />
     </div>
   );
