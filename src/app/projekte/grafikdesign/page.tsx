@@ -1,4 +1,3 @@
-"use client";
 import DesginFilter from "@/components/DesginFilter";
 import Imprint from "@/components/Imprint";
 
