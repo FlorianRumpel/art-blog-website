@@ -1,7 +1,13 @@
 import DesginFilter from "@/components/DesginFilter";
 import Imprint from "@/components/Imprint";
 
-function Personal() {
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: "Grafikdesign",
+};
+
+function Page() {
   return (
     <div>
       <DesginFilter filter="graphic" />
@@ -10,4 +16,4 @@ function Personal() {
   );
 }
 
-export default Personal;
+export default Page;

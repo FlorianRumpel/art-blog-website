@@ -1,8 +1,12 @@
-"use client";
 import DesginFilter from "@/components/DesginFilter";
 import Imprint from "@/components/Imprint";
+import {Metadata} from "next";
 
-function Personal() {
+export const metadata: Metadata = {
+  title: "Urbandesign",
+};
+
+function Page() {
   return (
     <div>
       <DesginFilter filter="urban" />
@@ -11,4 +15,4 @@ function Personal() {
   );
 }
 
-export default Personal;
+export default Page;

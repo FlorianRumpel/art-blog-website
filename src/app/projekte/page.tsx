@@ -1,6 +1,11 @@
 import Feed from "@/components/feed/Feed";
 import {Data} from "../../globalstate";
 import {fetchBlogData} from "@/firebaseconfig";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: "Alle Projekte",
+};
 
 async function Projects() {
   const unfilteredData: Data[] = await fetchBlogData();

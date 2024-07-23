@@ -1,6 +1,6 @@
-"use client";
 import DesginFilter from "@/components/DesginFilter";
 import Imprint from "@/components/Imprint";
+import {Metadata} from "next";
 
 function Personal() {
   return (

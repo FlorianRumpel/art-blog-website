@@ -6,7 +6,10 @@ import Layout from "@/components/Navigation";
 const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
-  title: "Emelie Christina Trenkler",
+  title: {
+    default: "Emelie Christina Trenkler",
+    template: "%s | Emelie Christina Trenkler",
+  },
   description: "Der Blog von Emelie Christina Trenkler",
 };
 

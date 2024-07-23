@@ -1,3 +1,4 @@
+import {Metadata} from "next";
 import dynamic from "next/dynamic";
 
 const DetailsClientComponent = dynamic(
@@ -6,7 +7,9 @@ const DetailsClientComponent = dynamic(
     ssr: false,
   },
 );
-
+export const metadata: Metadata = {
+  title: "Details",
+};
 function Details() {
   return <DetailsClientComponent />;
 }
