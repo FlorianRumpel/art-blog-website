@@ -18,9 +18,12 @@ const firebaseConfig = {
   measurementId: "G-7YWF8NS623",
 };
 async function fetchBlogData() {
-  const res = await fetch("http://localhost:3000/api/firebase", {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    "https://emelie-christina-trenkler.vercel.app//api/firebase",
+    {
+      cache: "no-store",
+    },
+  );
   const data = await res.json();
   return data.response;
 }
