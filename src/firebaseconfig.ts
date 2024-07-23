@@ -19,7 +19,7 @@ const firebaseConfig = {
 };
 async function fetchBlogData() {
   const res = await fetch(
-    "https://emelie-christina-trenkler.vercel.app//api/firebase",
+    "https://emelie-christina-trenkler.vercel.app/api/firebase",
     {
       cache: "no-store",
     },
