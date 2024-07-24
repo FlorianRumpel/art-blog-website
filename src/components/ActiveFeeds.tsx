@@ -28,7 +28,7 @@ function ActiveFeeds() {
     } catch (error) {
       alert(error);
     }
-  }, []);
+  }, [dataBaseRef]);
 
   async function deleteItem(id: string, name: string, imageNames: string[]) {
     const fullItemName = `${name.toLowerCase().replace(" ", "")}+${id}`;

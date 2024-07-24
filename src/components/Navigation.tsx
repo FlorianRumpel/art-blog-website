@@ -38,7 +38,7 @@ function Layout() {
               className={`nav-link ${
                 location.includes("projekte") && "active"
               }`}
-              href="projekte"
+              href={`${process.env.BASE_URL}/projekte`}
             >
               PROJEKTE
             </Link>
@@ -120,7 +120,7 @@ function Layout() {
                     Home
                   </Link>
                   <Link
-                    href="projekte"
+                    href={`${process.env.BASE_URL}/projekte`}
                     className={`nav-link-bold ${
                       location.includes("projekte") && "active"
                     }`}

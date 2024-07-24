@@ -1,3 +1,11 @@
+import {Metadata} from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Nicht gefunden",
+  };
+}
+
 function NotFound() {
   return (
     <div className="not-found-page">

@@ -4,14 +4,31 @@ import {Data} from "@/globalstate";
 import BackButton from "@/components/BackButton";
 import {Metadata} from "next";
 import {notFound} from "next/navigation";
-export const metadata: Metadata = {
-  title: "Details",
-};
 
-async function Details({params}: {params: {postName: string}}) {
-  // const url = `http://localhost:3000/api/firebase/${params.postName}`;
-  const url = `https://emelie-christina-trenkler.vercel.app/api/firebase/${params.postName}`;
+export async function generateMetadata({
+  params,
+}: {
+  params: {postName: string};
+}): Promise<Metadata> {
+  const url = `${process.env.BASE_URL}/api/firebase/${params.postName}`;
   const res = await fetch(url);
+  const resJson = await res.json();
+  const data: Data = resJson.response;
+  const cleanDescription = data.description.replaceAll(/(<([^>]+)>)/gi, "");
+  return {
+    title: `Details - ${params.postName}`,
+    description: cleanDescription,
+    openGraph: {
+      images: {
+        url: data.mainImageUrl,
+      },
+    },
+  };
+}
+async function Details({params}: {params: {postName: string}}) {
+  const url = `${process.env.BASE_URL}/api/firebase/${params.postName}`;
+  const res = await fetch(url);
+
   const resJson = await res.json();
 
   const data: Data = resJson.response;
@@ -53,10 +70,7 @@ async function Details({params}: {params: {postName: string}}) {
   );
 }
 export async function generateStaticParams() {
-  // const res = await fetch("http://localhost:3000/api/firebase");
-  const res = await fetch(
-    "https://emelie-christina-trenkler.vercel.app/api/firebase",
-  );
+  const res = await fetch(`${process.env.BASE_URL}/api/firebase`);
   const resJson = await res.json();
   const posts: Data[] = resJson.response;
   return posts.map((post: Data) => post.id);

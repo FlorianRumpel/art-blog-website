@@ -15,6 +15,13 @@ import {ref as storageRef, getDownloadURL, uploadBytes} from "firebase/storage";
 import {ref, set} from "firebase/database";
 import ActiveFeeds from "@/components/ActiveFeeds";
 import {useRouter} from "next/navigation";
+import {Metadata} from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Upload",
+  };
+}
 
 function Upload() {
   const [value, setValue] = useState<string>("");

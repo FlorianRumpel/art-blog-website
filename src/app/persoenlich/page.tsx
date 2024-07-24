@@ -4,6 +4,7 @@ import {Metadata} from "next";
 
 export const metadata: Metadata = {
   title: "Persönlich",
+  description: "alle projekte die zu persönlich gehören",
 };
 
 function Personal() {
