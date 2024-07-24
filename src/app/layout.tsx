@@ -12,6 +12,7 @@ const jsonLd: WithContext<BlogPosting> = {
   name: "Emelie Christina Trenkler",
   url: "https://emelie-christina-trenkler.vercel.app/",
   description: "Der Blog von Emelie Christina Trenkler",
+  author: "Emelie Christina Trenkler",
   publisher: {
     "@type": "Person",
     name: "Emelie Christina Trenkler",
