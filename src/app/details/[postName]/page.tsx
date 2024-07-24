@@ -14,7 +14,7 @@ async function Details({params}: {params: {postName: string}}) {
   const res = await fetch(url);
   const resJson = await res.json();
 
-  const data: Data = resJson.res;
+  const data: Data = resJson.response;
 
   if (!data) {
     return notFound();
