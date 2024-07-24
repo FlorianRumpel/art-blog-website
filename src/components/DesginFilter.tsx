@@ -11,14 +11,22 @@ type Props = {
     | "photo"
     | "product"
     | "home"
-    | "personal";
+    | "personal"
+    | "projects";
 };
 
 async function DesginFilter(props: Props) {
   const {filter} = props;
   const unfilteredData: Data[] = await fetchBlogData();
 
-  const data = unfilteredData.filter((item) => item.categorie == filter);
+  let data;
+  if (props.filter !== "projects") {
+    data = unfilteredData.filter((item) => item.categorie == filter);
+  } else {
+    data = unfilteredData.filter(
+      (item) => item.categorie != "home" && item.categorie != "personal",
+    );
+  }
 
   return (
     <div>
