@@ -16,13 +16,7 @@ function Layout() {
       <div className={location === "/" ? "nav-wrapper" : ""}>
         <nav style={location !== "/" ? {boxShadow: "0 -10px 40px black"} : {}}>
           <div className="logo-text">
-            <Image
-              width={55}
-              height={90}
-              className="logo-img"
-              src={Logo}
-              alt="logo"
-            />
+            <Image className="logo-img" src={Logo} alt="logo" />
             <Link
               className={`nav-link ${location === "/persoenlich" && "active"}`}
               href="/persoenlich"

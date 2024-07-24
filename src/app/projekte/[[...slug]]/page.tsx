@@ -1,4 +1,5 @@
 import DesginFilter from "@/components/DesginFilter";
+import Imprint from "@/components/Imprint";
 import {Metadata} from "next";
 import {notFound} from "next/navigation";
 import React from "react";
@@ -62,10 +63,21 @@ export async function generateMetadata({
 }
 
 function Page({params}: {params: {slug?: string}}) {
-  if (params.slug === undefined) return <DesginFilter filter="projects" />;
+  if (params.slug === undefined)
+    return (
+      <>
+        <DesginFilter filter="projects" />
+        <Imprint />
+      </>
+    );
   const slug = params.slug[0].toLowerCase();
   if (routes.includes(slug)) {
-    return <DesginFilter filter={filterMap[slug]} />;
+    return (
+      <>
+        <DesginFilter filter={filterMap[slug]} />
+        <Imprint />
+      </>
+    );
   } else {
     return notFound();
   }

@@ -79,10 +79,10 @@ nav {
   .logo-text {
     display: flex;
     align-items: center;
-    // .logo-img {
-    //   width: 3.8rem;
-    //   aspect-ratio: 3/4;
-    // }
+    .logo-img {
+      width: 3.8rem;
+      height: auto;
+    }
   }
   .nav-link {
     text-decoration: none;
