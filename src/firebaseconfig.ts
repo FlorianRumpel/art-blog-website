@@ -17,16 +17,7 @@ const firebaseConfig = {
   appId: process.env.VITE_FIREBASE_APP_ID,
   measurementId: "G-7YWF8NS623",
 };
-async function fetchBlogData() {
-  const res = await fetch(
-    "https://emelie-christina-trenkler.vercel.app/api/firebase",
-    {
-      cache: "no-store",
-    },
-  );
-  const data = await res.json();
-  return data.response;
-}
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -35,4 +26,4 @@ const storage = getStorage(app);
 // isSupported().then((result) => {
 //   analytics = getAnalytics(app);
 // });
-export {db, storage, fetchBlogData};
+export {db, storage};

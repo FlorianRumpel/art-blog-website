@@ -5,6 +5,16 @@ const nextConfig = {
     VITE_FIREBASE_APP_ID: "1:506877292870:web:44ad33ce5b352ea9f1b547",
     VITE_PASSWORD: "password123",
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        port: "",
+        pathname: "/v0/b/emelie-christina-trenkler.appspot.com/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

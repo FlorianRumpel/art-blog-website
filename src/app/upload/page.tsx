@@ -37,6 +37,7 @@ function Upload() {
   const handleMainImageChange = (e: any) => {
     setMainImage(e.target.files[0]);
   };
+
   const handleAdditionalImagesChange = (e: any) => {
     const files = Array.from(e.target.files);
     const filesArray = [files[0], files[1]];
@@ -80,18 +81,15 @@ function Upload() {
       imagesNames.push(image.name.toLowerCase().replace(" ", "") + "+" + id);
     }
 
-    await set(
-      ref(db, `posts/${name.toLowerCase().replace(" ", "") + "+" + id}`),
-      {
-        id: id,
-        name: name,
-        description: value,
-        mainImageUrl,
-        additionalImageUrls: additionalImageUrls,
-        categorie: selectValue,
-        allImageNames: imagesNames,
-      },
-    );
+    await set(ref(db, `posts/${name.toLowerCase().replaceAll(" ", "-")}`), {
+      id: id,
+      name: name,
+      description: value,
+      mainImageUrl,
+      additionalImageUrls: additionalImageUrls,
+      categorie: selectValue,
+      allImageNames: imagesNames,
+    });
 
     setMainImage(null);
     setAdditionalImages([]);

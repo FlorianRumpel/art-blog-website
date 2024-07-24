@@ -1,8 +1,7 @@
 import DesginFilter from "@/components/DesginFilter";
 import Imprint from "@/components/Imprint";
-import {Metadata} from "next";
 
-function Personal() {
+function Page() {
   return (
     <div>
       <DesginFilter filter="home" />
@@ -11,4 +10,4 @@ function Personal() {
   );
 }
 
-export default Personal;
+export default Page;

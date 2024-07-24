@@ -1,4 +1,3 @@
-import {fetchBlogData} from "../firebaseconfig";
 import Feed from "./feed/Feed";
 import {Data} from "../globalstate";
 
@@ -17,7 +16,16 @@ type Props = {
 
 async function DesginFilter(props: Props) {
   const {filter} = props;
-  const unfilteredData: Data[] = await fetchBlogData();
+  const res = await fetch(
+    "https://emelie-christina-trenkler.vercel.app/api/firebase",
+    // "http://localhost:3000/api/firebase",
+    {
+      cache: "no-store",
+    },
+  );
+
+  const resJson = await res.json();
+  const unfilteredData: Data[] = resJson.response;
 
   let data;
   if (props.filter !== "projects") {
