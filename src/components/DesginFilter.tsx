@@ -16,9 +16,12 @@ type Props = {
 
 async function DesginFilter(props: Props) {
   const {filter} = props;
-  const res = await fetch(`${process.env.BASE_URL}/api/firebase`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.BASE_URL}/api/firebase?timestamp=${new Date().getTime()}`,
+    {
+      cache: "no-store",
+    },
+  );
 
   const resJson = await res.json();
   const unfilteredData: Data[] = resJson.response;

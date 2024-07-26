@@ -5,6 +5,7 @@ const nextConfig = {
     VITE_FIREBASE_APP_ID: "1:506877292870:web:44ad33ce5b352ea9f1b547",
     VITE_PASSWORD: "password123",
     BASE_URL: "https://emelie-christina-trenkler.vercel.app/",
+    // BASE_URL: "http://localhost:3000",
   },
   images: {
     remotePatterns: [
