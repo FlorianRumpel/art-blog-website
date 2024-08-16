@@ -15,29 +15,27 @@ type Data = {
   allImageNames: string[];
 };
 
+const dataBaseRef = ref(db, "posts");
+
 function ActiveFeeds() {
-  const dataBaseRef = ref(db, "posts");
   const [data, setData] = useState<Data[]>([]);
+  const fetchData = async () => {
+    const res = await fetch(`${process.env.BASE_URL}/api/firebase`);
+
+    const resJson = await res.json();
+    setData(resJson.response);
+  };
+
   useEffect(() => {
-    try {
-      onValue(dataBaseRef, (snapshot: any) => {
-        const response: Data[] = snapshot.val();
-        if (!response) return;
-        setData(Object.values(response));
-      });
-    } catch (error) {
-      alert(error);
-    }
-  }, [dataBaseRef]);
+    fetchData();
+  });
 
   async function deleteItem(id: string, name: string, imageNames: string[]) {
-    const fullItemName = `${name.toLowerCase().replace(" ", "")}+${id}`;
+    const fullItemName = `${name.toLowerCase().replaceAll(" ", "-")}`;
     const itemRef = ref(db, `/posts/${fullItemName}`);
     remove(itemRef).catch((error) => {
       console.error("Fehler beim Löschen der Daten:", error);
     });
-
-    setData((prev) => prev.filter((item) => item.id !== id));
 
     const uniq = [...new Set(imageNames)];
 
@@ -51,6 +49,7 @@ function ActiveFeeds() {
           console.error("Fehler beim Löschen des Bildes:", error);
         });
     });
+    await fetchData();
   }
 
   return (

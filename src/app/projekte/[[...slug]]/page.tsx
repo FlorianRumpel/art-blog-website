@@ -1,6 +1,7 @@
 import DesginFilter from "@/components/DesginFilter";
 import Imprint from "@/components/Imprint";
 import {Metadata} from "next";
+import {revalidatePath} from "next/cache";
 import {notFound} from "next/navigation";
 import React from "react";
 

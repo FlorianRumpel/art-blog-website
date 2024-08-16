@@ -3,6 +3,8 @@ import {db} from "@/firebaseconfig";
 import {get, ref} from "firebase/database";
 import {Data} from "@/globalstate";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: any, {params}: {params: {postName: string}}) {
   const {postName} = params;
   const dbRef = ref(db, `posts/${postName.toLowerCase().replaceAll(" ", "-")}`);

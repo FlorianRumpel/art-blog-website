@@ -15,7 +15,6 @@ import {ref as storageRef, getDownloadURL, uploadBytes} from "firebase/storage";
 import {ref, set} from "firebase/database";
 import ActiveFeeds from "@/components/ActiveFeeds";
 import {useRouter} from "next/navigation";
-import {Metadata} from "next";
 
 function Upload() {
   const [value, setValue] = useState<string>("");
@@ -98,9 +97,12 @@ function Upload() {
     setValue("");
     setSelectValue("disabled");
 
+    // revalidatePath("/", "layout");
+
     if (!input1.current) return;
     input1.current.value = "";
   };
+
   function checkPassword() {
     if (password === process.env.VITE_PASSWORD) {
       setShowEditor(true);
